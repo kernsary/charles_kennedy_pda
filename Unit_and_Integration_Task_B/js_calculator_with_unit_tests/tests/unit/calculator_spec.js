@@ -11,14 +11,6 @@ describe('calculator', function () {
     assert.equal(true, true)
   })
 
-  // it('orig can add two numbers', function(){
-  //    calculator.numberClick(1);
-  //    calculator.operatorClick('+');
-  //    calculator.numberClick(4);
-  //    calculator.operatorClick('=');
-  //    assert.equal(calculator.previousTotal, 5)
-  // })
-
   it('can add a number', function(){
     calculator.previousTotal = 1;
     calculator.add(4);
@@ -57,6 +49,18 @@ describe('calculator', function () {
      calculator.numberClick(2);
      calculator.operatorClick('=');
      assert.equal(calculator.runningTotal, 3)
+  })
+
+  it('can clear a number without clearing calculation', function(){
+     calculator.numberClick(1);
+     calculator.operatorClick('+');
+     calculator.numberClick(2);
+     calculator.operatorClick('+');
+     calculator.numberClick(4);
+     calculator.clearClick();
+     calculator.numberClick(5);
+     calculator.operatorClick('=')
+     assert.equal(calculator.runningTotal, 8)
   })
 
 });
