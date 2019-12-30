@@ -43,4 +43,20 @@ describe('calculator', function () {
     assert.equal(calculator.runningTotal, 3)
   })
 
+  it('can concatenate entered numbers', function(){
+    calculator.numberClick(4);
+    calculator.numberClick(5);
+    assert.equal(calculator.runningTotal, 45)
+  })
+
+  it('can chain operations', function(){
+     calculator.numberClick(1);
+     calculator.operatorClick('+');
+     calculator.numberClick(4);
+     calculator.operatorClick('-');
+     calculator.numberClick(2);
+     calculator.operatorClick('=');
+     assert.equal(calculator.runningTotal, 3)
+  })
+
 });
